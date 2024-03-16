@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #000;
+  background:#e2e0ff;
+}
+
+.glass{
+  background: rgb(44, 26, 76, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+  border: 1px solid rgb(44, 26, 76, 0.4);
+}
+
+.btn{
+  background: #ece539;
+  border: 1px solid #ece539;
+  box-shadow: 5px 1px 5px rgba(0, 0, 0, 0.500);
+  border-radius: 20px;
+  padding: 8px 24px;
+  color: rgb(44, 26, 76);
+}
+.btn:hover{
+  background: #daca18;
+  border: 1px solid #daca18;
+  color: #2c1a4c;
+}
+.btn:active{
+  background: #bca112;
+  border: 1px solid #bca112;
+  box-shadow: none;
+  color: #2c1a4c;
+
+}
+
+.btn-secondary{
+  border: 1px solid #ece539;
+  box-shadow: 5px 1px 5px rgba(0, 0, 0, 0.500);
+  border-radius: 20px;
+  padding: 8px 24px;
+  color: #ece539;
+}
+.btn-secondary:hover{
+  background: #ece539;
+  color: #2c1a4c;
+}
+.btns-secondary:active{
+  background: #bca112;
+  color: #2c1a4c;
+  box-shadow: none;
+}
+
+.calendar-btn {
+  position: fixed;
+  z-index: 2;
+  right: 30px;
+  bottom: 30px;
+  background: #ece539;
+  border: 1px solid #ece539;
+  border-radius: 10px;
+  padding: 8px;
+  color: #2c1a4c;
+}
+
+
+
+.timer{
+  position: absolute;
+  bottom: 30px;
+  left: 35%;
+  width: 400px;
+}
+
+.counter-wraper{
+  flex-wrap: wrap;
+  background-color: rgb(236, 229, 57, 0.6);
+  border-radius: 16px;
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+  border: 1px solid rgb(236, 229, 57, 0.4);
+  display: flex;
+}
+ 
+.counter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  margin: 4px;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
