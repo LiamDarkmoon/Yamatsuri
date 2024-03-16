@@ -14,11 +14,11 @@ export type State = {
 
 
 export type User = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  confirm: string;
+  id: string | null;
+  name: string | null;
+  email: string |null;
+  password: string |null;
+  confirm: string | null;
 };
 
 export type Customer = {
