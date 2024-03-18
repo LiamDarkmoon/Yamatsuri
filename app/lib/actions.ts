@@ -88,6 +88,7 @@ export async function register(prevState: State, formData: FormData) {
       message: 'Usuario creado correctamente.',
     };
 
+    redirect('/');
   } catch (error) {
     return { 
       message: 'Error en la base de datos: no se ha creado el usuario.',
@@ -102,6 +103,7 @@ export async function register(prevState: State, formData: FormData) {
   ) {
     try {
       await signIn('credentials', formData);
+      redirect('/');
     } catch (error) {
       if (error instanceof AuthError) {
         switch (error.type) {
@@ -113,5 +115,4 @@ export async function register(prevState: State, formData: FormData) {
       }
       throw error;
     }
-    redirect('/abut');
   }
