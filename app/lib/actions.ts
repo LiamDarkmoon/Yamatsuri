@@ -6,9 +6,8 @@ import { State } from './definitions';
 import { PrismaClient } from '@prisma/client';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import prisma from './db';
 import bcrypt from 'bcrypt';
-
-const prisma = new PrismaClient();
 
 
 const registerSchema = z.object({
@@ -59,6 +58,23 @@ export async function register(prevState: State, formData: FormData) {
       throw new Error('El password no concuerda');
     }
 
+    // Check if user already exists
+
+
+
+    // Check if email already exists
+    const emailFound = await prisma.user.findUnique({
+      where: {
+        email: email,
+      }
+    })
+
+    if(emailFound){
+      return {
+        errors: {email: 'El email usuario ya existe.'},
+      }
+    }
+
     const newUser = await prisma.user.create({
       data: {
         name,
@@ -66,14 +82,13 @@ export async function register(prevState: State, formData: FormData) {
         email,
       },
     });
-    
+
     return {
       success: true,
       message: 'Usuario creado correctamente.',
     };
 
   } catch (error) {
-    console.error('error en la base de datos:', error);
     return { 
       message: 'Error en la base de datos: no se ha creado el usuario.',
     };
@@ -86,18 +101,17 @@ export async function register(prevState: State, formData: FormData) {
     formData: FormData,
   ) {
     try {
-      console.log(formData)
       await signIn('credentials', formData);
     } catch (error) {
       if (error instanceof AuthError) {
         switch (error.type) {
           case 'CredentialsSignin':
-            return 'Invalid credentials.';
+            return 'Email o password incorrecto.';
           default:
             return 'Ups Algo salio mal.';
         }
       }
       throw error;
     }
-    redirect('/');
+    redirect('/abut');
   }

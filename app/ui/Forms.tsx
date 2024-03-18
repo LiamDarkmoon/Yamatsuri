@@ -4,6 +4,7 @@ import { authenticate, register } from '../lib/actions';
 import { State } from '../lib/definitions';
 
 export const RegisterForm = () => {
+    const { pending } = useFormStatus();
     const initialState: State = { message:  null, errors: {} };
     const [state, dispatch] = useFormState(register, initialState);
 
@@ -23,7 +24,7 @@ export const RegisterForm = () => {
             </div>
             <div className='flex flex-col items-start mt-2'>
                 <label htmlFor="password" className="ms-2">Password</label>
-                <input type="text" name="password" id="password" aria-describedby='password-error'className="p-2 rounded-lg"/>
+                <input type="password" name="password" id="password" aria-describedby='password-error'className="p-2 rounded-lg"/>
                 <div id="password-error" aria-live="polite" aria-atomic="true">
                     {state.errors?.password &&
                     state.errors.password.map((error: string) => (
@@ -35,7 +36,7 @@ export const RegisterForm = () => {
             </div>
             <div className='flex flex-col items-start mt-2'>
                 <label htmlFor="confirm" className="ms-2">Confirmar password</label>
-                <input type="text" name="confirm" id="confirm" aria-describedby='confirm-error'className="p-2 rounded-lg"/>
+                <input type="password" name="confirm" id="confirm" aria-describedby='confirm-error'className="p-2 rounded-lg"/>
                 <div id="confirm-error" aria-live="polite" aria-atomic="true">
                     {state.errors?.confirm &&
                     state.errors.confirm.map((error: string) => (
@@ -47,7 +48,7 @@ export const RegisterForm = () => {
             </div>
             <div className='flex flex-col items-start mt-2'>
                 <label htmlFor="email" className="ms-2">Email</label>
-                <input type="text" name="email" id="email" aria-describedby='email-error'className="p-2 rounded-lg"/>
+                <input type="email" name="email" id="email" aria-describedby='email-error'className="p-2 rounded-lg"/>
                 <div id="email-error" aria-live="polite" aria-atomic="true">
                     {state.errors?.confirm &&
                     state.errors.confirm.map((error: string) => (
@@ -57,7 +58,7 @@ export const RegisterForm = () => {
                     ))}
                 </div>
             </div>
-            <button className='btn mt-4' type="submit">Crear cuenta</button>
+            <button className='btn mt-4' type="submit" aria-disabled={pending}>Crear cuenta</button>
         </form>
     )
 }
@@ -70,11 +71,11 @@ export const LoginForm = () =>{
         <form className='flex flex-col items-center' action={dispatch}>
             <div className='flex flex-col items-start mt-2'>
                 <label htmlFor="email" className="ms-2">Email</label>
-                <input type="text" name="email" id="email" className="p-2 rounded-lg"/>
+                <input type="email" name="email" id="email" className="p-2 rounded-lg"/>
             </div>
             <div className='flex flex-col items-start mt-2'>
                 <label htmlFor="password" className="ms-2">Password</label>
-                <input type="text" name="password" id="password" className="p-2 rounded-lg"/>
+                <input type="password" name="password" id="password" className="p-2 rounded-lg"/>
             </div>
             <button className='btn mt-4' type="submit">Ingresar</button>
             <div
@@ -103,7 +104,7 @@ export const TicketForm = () =>{
             </div>
             <div>
                 <label htmlFor="password" className="ms-2">Password</label>
-                <input type="text" name="password" id="password" className="p-2 rounded-lg"/>
+                <input type="password" name="password" id="password" className="p-2 rounded-lg"/>
             </div>
         </form>
     )
