@@ -1,5 +1,7 @@
 'use client'
-import { useFormState, useFormStatus } from 'react-dom';
+//@ts-ignore
+import { experimental_useFormState as useFormState } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { authenticate, register } from '../lib/actions';
 import { State } from '../lib/definitions';
 
