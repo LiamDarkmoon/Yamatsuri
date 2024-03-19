@@ -16,7 +16,6 @@ async function getUser(email: string): Promise<any> {
           });
           return user;
     } catch (error) {
-      console.error('Error al obtener el usuario', error);
       throw new Error('Error al obtener el usuario');
     }
   }

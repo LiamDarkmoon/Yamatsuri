@@ -9,12 +9,6 @@ const StoreList = () => {
             logo: "/fuegotiene.png"
         },
         {
-            id: 2,
-            name: "Bam Peluches",
-            address: "122 Main St",
-            logo: "/bam.jpg"
-        },
-        {
             id: 3,
             name: "Gato de Trapo",
             address: "123 Main St",
@@ -46,8 +40,8 @@ const StoreList = () => {
                             className="rounded-full"
                             src={store.logo}
                             alt={store.name}
-                            width={150}
-                            height={150}
+                            width={125}
+                            height={125}
                         />
                         <h5>{store.name}</h5>
                         <p>{store.address}</p>

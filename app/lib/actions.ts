@@ -2,12 +2,11 @@
 import { z  } from 'zod';
 import { sql  } from '@vercel/postgres';
 import { redirect } from 'next/navigation';
-import { State } from './definitions';
-import { PrismaClient } from '@prisma/client';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import prisma from './db';
 import bcrypt from 'bcrypt';
+import { State } from '../lib/definitions';
 
 
 const registerSchema = z.object({
@@ -26,6 +25,7 @@ const registerSchema = z.object({
   email: z.string({required_error: 'Por favor ingresa tu correo.'})
     .trim()
     .email("el email no es valido")
+    .min(6,{message: 'El email debe tener al menos 10 caracteres.'})
 });
 
 
@@ -71,7 +71,7 @@ export async function register(prevState: State, formData: FormData) {
 
     if(emailFound){
       return {
-        errors: {email: 'El email usuario ya existe.'},
+        errors: {email: 'El email ya existe.'},
       }
     }
 
@@ -83,17 +83,19 @@ export async function register(prevState: State, formData: FormData) {
       },
     });
 
+    
     return {
       success: true,
       message: 'Usuario creado correctamente.',
     };
 
-    redirect('/');
   } catch (error) {
     return { 
       message: 'Error en la base de datos: no se ha creado el usuario.',
     };
   }
+
+  redirect('/auth/login');
 }
 
 
@@ -103,7 +105,6 @@ export async function register(prevState: State, formData: FormData) {
   ) {
     try {
       await signIn('credentials', formData);
-      redirect('/');
     } catch (error) {
       if (error instanceof AuthError) {
         switch (error.type) {
@@ -115,4 +116,6 @@ export async function register(prevState: State, formData: FormData) {
       }
       throw error;
     }
+
+    redirect('/');
   }
