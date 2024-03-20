@@ -14,6 +14,7 @@ async function getUser(email: string): Promise<any> {
               email: email,
             },
           });
+          console.log(user)
           return user;
     } catch (error) {
       throw new Error('Error al obtener el usuario');
@@ -38,8 +39,8 @@ export const { auth, signIn, signOut } = NextAuth({
                 const passwordsMatch = await bcrypt.compare(password, user.password);
                 console.log(passwordsMatch);
 
-                if (passwordsMatch) return user;
                 console.log(user);
+                if (passwordsMatch) return user;
             }
             
             return null;

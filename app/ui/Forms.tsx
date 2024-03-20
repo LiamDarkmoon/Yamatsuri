@@ -68,7 +68,7 @@ export const RegisterForm = () => {
                 >
                     {state.message && (
                         <>
-                        <p className="text-sm text-warning">{state.message}</p>
+                        <p className={ state.message === 'Usuario creado correctamente.' ? "text-sm text-success" : "text-sm text-warning"}>{state.message}</p>
                         </>
                     )}
                 </div> 

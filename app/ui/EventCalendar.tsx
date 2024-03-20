@@ -14,12 +14,12 @@ const EventCalendar = () => {
         },
         {
             organisation: 'Yamatsuri',
-            name: 'Yamatsuri Mid Year',
+            name: 'Yamatsuri Mitad de año',
             start: new Date('2023-06-09, 14:00'),
         },
         {
             organisation: 'kyomu & Yamatsuri',
-            name: 'Kyo Spring Event',
+            name: 'Kyo evento de primavera',
             start: new Date('2023-09-15, 14:00'),
         },
     ]
@@ -37,7 +37,7 @@ const EventCalendar = () => {
             {
                 show && 
                 <div className="absolute min-w-80 right-0 bottom-12 bg-yellow-tones-200 rounded-lg p-4">
-                    <h1 className="font-semibold text-xl mb-2">Events Calendar</h1>
+                    <h1 className="font-semibold text-xl mb-2">Calendario de eventos</h1>
                     <ul>
                         { events.map((event, index) => (
                             <li 
