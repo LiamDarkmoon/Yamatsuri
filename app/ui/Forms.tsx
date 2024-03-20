@@ -1,14 +1,16 @@
 'use client'
-//@ts-ignore
-import { experimental_useFormState as useFormState } from 'react-dom';
-import { useFormStatus } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate, register } from '../lib/actions';
 import { State } from '../lib/definitions';
 
-export const RegisterForm = () => {
+type Props = {
+    register: (prevState: State, formData: FormData) => State | Promise<State>;
+  };
+
+export const RegisterForm = ({ register }: Props) => {
     const { pending } = useFormStatus();
     const initialState: State = { message:  null, errors: {} };
-    const [state, dispatch] = useFormState<State, FormData>(register, initialState);
+    const [state, dispatch] = useFormState(register, initialState);
 
     return(
             <form className='flex flex-col items-center w-full' action={dispatch}>
@@ -18,7 +20,7 @@ export const RegisterForm = () => {
                     <div id="name-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.name &&
                         state.errors.name.map((error: string) => (
-                            <p className="mt-2 text-sm text-red-500" key={error}>
+                            <p className="mt-2 text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -30,7 +32,7 @@ export const RegisterForm = () => {
                     <div id="password-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.password &&
                         state.errors.password.map((error: string) => (
-                            <p className="mt-2 text-sm text-red-500" key={error}>
+                            <p className="mt-2 text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -42,7 +44,7 @@ export const RegisterForm = () => {
                     <div id="confirm-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.confirm &&
                         state.errors.confirm.map((error: string) => (
-                            <p className="mt-2 text-sm text-red-500" key={error}>
+                            <p className="mt-2 text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -54,7 +56,7 @@ export const RegisterForm = () => {
                     <div id="email-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.confirm &&
                         state.errors.confirm.map((error: string) => (
-                            <p className="mt-2 text-sm text-red-500" key={error}>
+                            <p className="mt-2 text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -88,7 +90,7 @@ export const LoginForm = () =>{
             >
                 {errorMessage && (
                     <>
-                    <p className="text-sm text-red-500">{errorMessage}</p>
+                    <p className="text-sm text-warning">{errorMessage}</p>
                     </>
                 )}
             </div> 

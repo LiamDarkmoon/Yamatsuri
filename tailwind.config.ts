@@ -7,7 +7,24 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    extend: {
+      backgroundImage: {
+        'bg-image' : "url('/li-bg.jpeg')",
+        'bg-image-she' : "url('/she.jpeg')",
+        'bg-image-we' : "url('/slayers.jpeg')",
+      }
+    },
+    backgroundSize:{
+      'auto': 'auto',
+      'cover': 'cover',
+      'contain': 'contain',
+      '50%': '50%',
+      '16': '4rem',
+      '': ''
+    },
     colors: {
+      'warning':'#FF3131',
+      'success':'#39FF14',
       'purple': '#472b7d',
       'purple-tones': {
         '50': '#efeeff',
@@ -31,21 +48,6 @@ const config: Config = {
       'gray': '#939597',
       'gray-light': '#d3dce6',
     },
-    extend: {
-      backgroundImage: {
-        'bg-image' : "url('/li-bg.jpeg')",
-        'bg-image-she' : "url('/she.jpeg')",
-        'bg-image-we' : "url('/slayers.jpeg')",
-      }
-    },
-    backgroundSize:{
-      'auto': 'auto',
-      'cover': 'cover',
-      'contain': 'contain',
-      '50%': '50%',
-      '16': '4rem',
-      '': ''
-    }
   },
   plugins: [],
 };
