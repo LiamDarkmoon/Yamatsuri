@@ -1,4 +1,5 @@
 'use client'
+import { useSession } from "next-auth/react"
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate, register } from '../lib/actions';
 import { State } from '../lib/definitions';

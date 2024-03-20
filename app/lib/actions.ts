@@ -49,17 +49,31 @@ export async function register(prevState: State, formData: FormData) {
   const { name, confirm, email } = validate.data;
 
   try {
+    // Check that every field is completed
     if (!name || !password || !confirm || !email) {
-      throw new Error('Todos los campos son requeridos');
+      return {
+        message: 'quedan campos por completar'
+      }
     }
 
     // Check if password and confirmation match
     if (validate.data.password !== confirm) {
-      throw new Error('El password no concuerda');
+      return {
+        message: 'El password no concuerda'
+      }
     }
 
     // Check if user already exists
-
+    const nameFound = await prisma.user.findUnique({
+      where: {
+        name: name,
+      }
+    })
+    if(nameFound){
+      return {
+        message: 'El usuario ya existe.'
+      }
+    }
 
 
     // Check if email already exists
@@ -68,28 +82,30 @@ export async function register(prevState: State, formData: FormData) {
         email: email,
       }
     })
-
     if(emailFound){
-        throw new Error("El email ya existe.");
+      return {
+        message: 'El email ya existe.'
+      }
     }
 
+    //Create User
     const newUser = await prisma.user.create({
       data: {
         name,
         password,
         email,
       },
-    });
+    })
 
     
     return {
       message: 'Usuario creado correctamente.',
-    };
+    }
 
   } catch (error) {
     return { 
       message: 'Error en la base de datos: no se ha creado el usuario.',
-    };
+    }
   }
 
 
@@ -97,23 +113,19 @@ export async function register(prevState: State, formData: FormData) {
 }
 
 
-  export async function authenticate(
-    prevState: string | undefined,
-    formData: FormData,
-  ) {
-    try {
-      await signIn('credentials', formData);
-    } catch (error) {
-      if (error instanceof AuthError) {
-        switch (error.type) {
-          case 'CredentialsSignin':
-            return 'Email o password incorrecto.';
-          default:
-            return 'Ups Algo salio mal.';
-        }
+export async function authenticate(prevState: string | undefined, formData: FormData,){
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Email o password incorrecto.';
+        default:
+          return 'Ups Algo salio mal.';
       }
-      throw error;
     }
-
-    redirect('/');
+    throw error;
   }
+  redirect('/');
+}

@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'bg-image' : "url('/li-bg.jpeg')",
-        'bg-image-she' : "url('/she.jpeg')",
-        'bg-image-we' : "url('/slayers.jpeg')",
+        'bg-image' : "url('/li-bg.png')",
+        'bg-image-she' : "url('/she.png')",
+        'bg-image-we' : "url('/slayers.png')",
       }
     },
     backgroundSize:{

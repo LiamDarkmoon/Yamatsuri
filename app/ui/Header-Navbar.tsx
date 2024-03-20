@@ -11,14 +11,17 @@ async function HeaderNavbar() {
     return (
         <header className={styles.headernav + " bg-purple-tones-700"}>
             <nav className={styles.navbar}>
-                <Link href="/">
-                <Image
-                    src="/yamatsuri-logo.png"
-                    alt="Yamatsuri Logo"
-                    width={40}
-                    height={40}
-                />
-                </Link>
+                <div className='flex items-center'>
+                    <Link href="/">
+                    <Image
+                        src="/yamatsuri-logo.png"
+                        alt="Yamatsuri Logo"
+                        width={40}
+                        height={40}
+                    />
+                    </Link>
+                    <Link className='ml-4 text-yellow' href={`/${session?.user?.name}`}>{session?.user?.name}</Link>
+                </div>
                 <ul className={styles.navlist}>
                     <Link href="/about">
                         About us

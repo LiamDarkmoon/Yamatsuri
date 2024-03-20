@@ -14,10 +14,11 @@ export default function RootLayout({
   } : {
     children: React.ReactNode; 
   }) {
+
   return (
     <html lang="en">
       <body className={roboto.className + " bg-purple-tones-100 min-h-screen"}>
-        <HeaderNavbar />
+        <HeaderNavbar/>
         <EventCalendar />
         { children }
         <FooterNav/>
