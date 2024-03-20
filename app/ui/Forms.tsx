@@ -3,11 +3,8 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate, register } from '../lib/actions';
 import { State } from '../lib/definitions';
 
-type Props = {
-    register: (prevState: State, formData: FormData) => State | Promise<State>;
-  };
 
-export const RegisterForm = ({ register }: Props) => {
+export const RegisterForm = () => {
     const { pending } = useFormStatus();
     const initialState: State = { message:  null, errors: {} };
     const [state, dispatch] = useFormState(register, initialState);
@@ -54,8 +51,8 @@ export const RegisterForm = ({ register }: Props) => {
                     <label htmlFor="email" className="ms-2">Email</label>
                     <input type="email" name="email" id="email" aria-describedby='email-error'className="p-2 rounded-lg w-full"/>
                     <div id="email-error" aria-live="polite" aria-atomic="true">
-                        {state.errors?.confirm &&
-                        state.errors.confirm.map((error: string) => (
+                        {state.errors?.email &&
+                        state.errors.email.map((error: string) => (
                             <p className="mt-2 text-sm text-warning" key={error}>
                             {error}
                             </p>
@@ -63,6 +60,17 @@ export const RegisterForm = ({ register }: Props) => {
                     </div>
                 </div>
                 <button className='btn mt-4' type="submit" aria-disabled={pending}>Crear cuenta</button>
+                <div
+                    className="flex h-8 items-end space-x-1"
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
+                    {state.message && (
+                        <>
+                        <p className="text-sm text-warning">{state.message}</p>
+                        </>
+                    )}
+                </div> 
             </form>
     )
 }

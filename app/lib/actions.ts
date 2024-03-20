@@ -18,14 +18,14 @@ const registerSchema = z.object({
     .trim()
     .min(6,{message: 'La contraseña debe tener al menos 6 caracteres.'})
     .max(18,{message: 'La contraseña es muy larga.'}),
-  confirm: z.string({required_error: 'Por favor ingresa la contraseña.'})
+  confirm: z.string({required_error: 'Por favor confirma la contraseña.'})
     .trim()
     .min(6,{message: 'La contraseña debe tener al menos 6 caracteres.'})
     .max(18,{message: 'La contraseña es muy larga.'}),
   email: z.string({required_error: 'Por favor ingresa tu correo.'})
     .trim()
-    .email("el email no es valido")
     .min(6,{message: 'El email debe tener al menos 10 caracteres.'})
+    .email("el email no es valido")
 });
 
 
@@ -70,9 +70,7 @@ export async function register(prevState: State, formData: FormData) {
     })
 
     if(emailFound){
-      return {
-        errors: {email: 'El email ya existe.'},
-      }
+        throw new Error("El email ya existe.");
     }
 
     const newUser = await prisma.user.create({
@@ -85,7 +83,6 @@ export async function register(prevState: State, formData: FormData) {
 
     
     return {
-      success: true,
       message: 'Usuario creado correctamente.',
     };
 
@@ -94,6 +91,7 @@ export async function register(prevState: State, formData: FormData) {
       message: 'Error en la base de datos: no se ha creado el usuario.',
     };
   }
+
 
   redirect('/auth/login');
 }
