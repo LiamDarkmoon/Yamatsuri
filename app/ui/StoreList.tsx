@@ -12,7 +12,9 @@ const StoreList = () => {
     }, [vw])
 
     const handleSlide = (offSet: number) => {
-        storeSlideRef.current.scrollLeft += offSet
+        if (storeSlideRef.current){
+            storeSlideRef.current.scrollLeft += offSet
+        }
     }
 
     const stores= [
