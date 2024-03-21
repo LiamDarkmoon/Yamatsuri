@@ -35,23 +35,23 @@ const EventTimer = () => {
    }, [countDown])
 
     return(
-        <div className="timer flex flex-col items-center text-center">
+        <div className="timer flex flex-col items-center text-center w-10/12 sm:w-4/12">
             <Link className="btn w-5/12 my-5 shadow-lg shadow-purple" href="/tickets">Tickets</Link>
             <div className='counter-wraper justify-center p-4'>
                 <h3 className="w-10/12 text-3xl">{eventName}</h3>
-                <div className="counter text-center shadow-md shadow-purple">
+                <div className="counter w-16 h-16 text-center shadow-md shadow-purple sm:w-20 sm:h-20">
                     <span className='text-3xl'>{countDown.days}</span>
                     <span className="">Dias</span>
                 </div>
-                <div className="counter text-center shadow-md shadow-purple">
+                <div className="counter w-16 h-16 text-center shadow-md shadow-purple sm:w-20 sm:h-20">
                     <span className='text-3xl'>{countDown.hours}</span>
                     <span className="">Horas</span>
                 </div>
-                <div className="counter text-center shadow-md shadow-purple">     
+                <div className="counter w-16 h-16 text-center shadow-md shadow-purple sm:w-20 sm:h-20">     
                     <span className='text-3xl'>{countDown.minutes}</span>
                     <span className="">Min</span>
                 </div>
-                <div className="counter text-center shadow-md shadow-purple">       
+                <div className="counter w-16 h-16 text-center shadow-md shadow-purple sm:w-20 sm:h-20">       
                     <span className='text-3xl'>{countDown.seconds}</span>
                     <span >seg</span>
                 </div>

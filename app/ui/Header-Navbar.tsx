@@ -3,6 +3,8 @@ import Image  from 'next/image'
 import styles from '../ui/navbar.module.css'
 import { auth }  from '@/auth'
 import LogoutButton from '../ui/LogoutButton'
+import { User } from '@geist-ui/icons'
+
 
 
 async function HeaderNavbar() {
@@ -14,13 +16,14 @@ async function HeaderNavbar() {
                 <div className='flex items-center'>
                     <Link href="/">
                     <Image
-                        src="/yamatsuri-logo.png"
+                        src="/Yamatsuri-logo.png"
                         alt="Yamatsuri Logo"
                         width={40}
                         height={40}
                     />
                     </Link>
-                    <Link className='ml-4 text-yellow' href={`/${session?.user?.name}`}>{session?.user?.name}</Link>
+                    <Link className='ml-4 text-yellow' href={`/${session?.user?.name}`}><User/></Link>
+                    <Link className='hidden sm:block ml-2 text-yellow' href={`/${session?.user?.name}`}>{session?.user?.name}</Link>
                 </div>
                 <ul className={styles.navlist}>
                     <Link href="/about">

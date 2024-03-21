@@ -17,7 +17,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={roboto.className + " bg-purple-tones-100 min-h-screen"}>
+      <body className={roboto.className + " bg-purple-tones-100"}>
         <HeaderNavbar/>
         <EventCalendar />
         { children }
