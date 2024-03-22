@@ -6,7 +6,7 @@ import EventTimer from './ui/EventTimer';
 export default function HomePage() {
   return (
     <main className="flex flex-col">
-      <section className="relative bg-bg-image bg-no-repeat bg-[length:1350px] flex justify-between shrink-0 min-h-screen min-w-full items-center bg-purple-tones-500 p-4">
+      <section className="relative bg-bg-image-slayers bg-no-repeat bg-cover bg-center flex justify-between h-screen min-w-full items-center bg-purple-tones-500 p-4 sm:bg-bg-image sm:bg-[length:1350px]">
         <Image
           className='m-auto sm:ms-10'
           src='/Yamatsuri-logo.png'
@@ -21,7 +21,7 @@ export default function HomePage() {
         </div>
           <EventTimer/>
       </section>
-      <section className="flex flex-col items-center px-5 my-12 sm:px-12">
+      <section className="flex flex-col h-screen items-center justify-evenly px-5 my-12 sm:px-12">
         <article className="text-center w-full sm:w-9/12">
           <h2 className="text-3xl font-bold text-purple">¿Qué es Yamatsuri?</h2>
           <p className="text-xl text-purple my-4">
@@ -33,8 +33,8 @@ export default function HomePage() {
         </article>
         <StoreList/>
       </section>
-      <section className="flex bg-bg-image-she bg-no-repeat bg-cover bg-center shrink-0 min-h-screen min-w-full items-center bg-purple-tones-500">
-        <div className="glass p-8 w-3/4 h-screen sm:w-2/4">
+      <section className="flex bg-bg-image-she bg-no-repeat bg-cover bg-center h-screen min-w-full items-center bg-purple-tones-500">
+        <div className="glass p-8 pt-12 w-3/4 h-screen sm:w-2/4">
           <h2 className="text-3xl font-bold text-purple-tones-50">¿Que puedo encontrar en el evento?</h2>
         </div>
       </section>

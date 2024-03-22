@@ -1,6 +1,8 @@
 'use client'
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
+import { ArrowLeft } from '@geist-ui/icons/';
+import { ArrowRight } from '@geist-ui/icons/';
 
 const StoreList = () => {
 
@@ -10,7 +12,7 @@ const StoreList = () => {
     useEffect(() => {
         setVw(storeSlideRef.current?.offsetWidth)
     }, [vw])
-
+    
     const handleSlide = (offSet: number) => {
         if (storeSlideRef.current){
             storeSlideRef.current.scrollLeft += offSet
@@ -34,13 +36,13 @@ const StoreList = () => {
             id: 4,
             name: "Jazba",
             address: "124 Main St",
-            logo: "/jazba.jpg"
+            logo: "/jazba.png"
         },
         {
             id: 5,
             name: "MiteKudasai",
             address: "125 Main St",
-            logo: "/mite.jpg"
+            logo: "/mite.png"
         },
         {
             id: 6,
@@ -58,13 +60,13 @@ const StoreList = () => {
             id: 8,
             name: "Jazba",
             address: "124 Main St",
-            logo: "/jazba.jpg"
+            logo: "/jazba.png"
         },
         {
             id: 9,
             name: "MiteKudasai",
             address: "125 Main St",
-            logo: "/mite.jpg"
+            logo: "/mite.png"
         },
         {
             id: 10,
@@ -82,35 +84,35 @@ const StoreList = () => {
             id: 12,
             name: "Jazba",
             address: "124 Main St",
-            logo: "/jazba.jpg"
+            logo: "/jazba.png"
         },
         {
             id: 13,
             name: "MiteKudasai",
             address: "125 Main St",
-            logo: "/mite.jpg"
+            logo: "/mite.png"
         },
     ]
 
     return (
         <article className="relative text-center my-4 max-w-full">
+            <h3 className="mb-8 text-2xl font-semibold text-purple"> Nos Acompañan: </h3>
             <div ref={storeSlideRef}
                  className="w-full overflow-x-scroll no-scrollbar"
             >
-                <button onClick={()=> handleSlide(-vw)} className="absolute top-1/2 left-0">
-                    L <svg xmlns="http://www.w3.org/2000/svg" fill="purple" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"></svg>
+                <button onClick={()=> handleSlide(-vw)} className={"hidden absolute top-1/2 left-0 text-purple sm:block"}>
+                    <ArrowLeft/>
                 </button>
-                <button onClick={()=> handleSlide(vw)} className="absolute top-1/2 right-0">
-                    R <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"></svg>
+                <button onClick={()=> handleSlide(vw)} className="hidden absolute top-1/2 right-0 text-purple sm:block">
+                    <ArrowRight/>
                 </button>
-                <h3 className="mb-4 text-2xl font-semibold text-purple"> Nos Acompañan: </h3>
                 <ul className="w-max px-10 flex justify-between gap-10">
                     {stores.map(store => (
                         <li key={store.id}
-                            className="block text-purple text-lg font-medium w-40 h-40"
+                            className="block text-purple text-lg font-medium w-40"
                         >
                             <Image
-                                className="rounded-full"
+                                className="rounded-full mx-auto"
                                 src={store.logo}
                                 alt={store.name}
                                 width={140}

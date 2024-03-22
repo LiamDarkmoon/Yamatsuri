@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
+import GoogleProvider from "@auth/core/providers/google"
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import bcrypt from 'bcrypt';
@@ -21,7 +22,7 @@ async function getUser(email: string): Promise<any> {
     }
   }
  
-export const { auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -42,9 +43,12 @@ export const { auth, signIn, signOut } = NextAuth({
                 console.log(user);
                 if (passwordsMatch) return user;
             }
-            
-            return null;
+          return null;
         },
+      }),
+      GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       }),
   ],
 });
