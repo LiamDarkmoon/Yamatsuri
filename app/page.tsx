@@ -6,7 +6,7 @@ import EventTimer from './ui/EventTimer';
 export default function HomePage() {
   return (
     <main className="flex flex-col">
-      <section className="relative bg-bg-image-slayers bg-no-repeat bg-cover bg-center flex justify-between h-screen min-w-full items-center bg-purple-tones-500 p-4 sm:bg-bg-image sm:bg-[length:1350px]">
+      <section className="relative bg-bg-image-we bg-center bg-cover bg-no-repeat flex justify-between h-screen min-w-full items-center bg-purple-tones-500 p-4 sm:bg-bg-image sm:bg-[length:1350px] sm:bg-right-top">
         <Image
           className='m-auto sm:ms-10'
           src='/Yamatsuri-logo.png'

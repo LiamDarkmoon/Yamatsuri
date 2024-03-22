@@ -54,9 +54,25 @@ model VerificationToken {
 }
 
 model Event {
-  id        Int     @id @default(autoincrement())
+  id        String     @id @default(cuid())
   name     String
   organization   String
   date        DateTime
 
+}
+
+model Store {
+  id       String   @id @default(cuid())
+  name     String
+  adress   String
+  phone     String
+}
+
+model tickets {
+  id Int @id @default(autoincrement())
+  number Int
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId Int
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  storeId Int
 }

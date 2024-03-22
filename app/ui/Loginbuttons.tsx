@@ -10,7 +10,7 @@ export const GoogleLoginButton = () => {
             redirect('/')
         }
         }>
-            <button type="submit" className="border border-solid rounded-lg border-purple-tones-600 text-purple mt-2 px-4 py-2 hover:border-purple-tones-700 active:text-purple-tones-700">
+            <button type="submit" className="rounded-lg bg-purple-tones-600 text-purple-tones-50 mt-2 px-4 py-2 hover:bg-purple-tones-700 active:bg-purple-tones-900">
                 ingresar con google
             </button>
         </form>
