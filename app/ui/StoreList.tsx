@@ -96,20 +96,20 @@ const StoreList = () => {
 
     return (
         <article className="relative text-center my-4 max-w-full">
-            <h3 className="mb-8 text-2xl font-semibold text-purple"> Nos Acompañan: </h3>
+            <h3 className="mb-8 text-2xl font-semibold text-purple-tones-50"> Nos Acompañan: </h3>
             <div ref={storeSlideRef}
                  className="w-full overflow-x-scroll no-scrollbar"
             >
-                <button onClick={()=> handleSlide(-vw)} className={"hidden absolute top-1/2 left-0 text-purple sm:block"}>
+                <button onClick={()=> handleSlide(-vw)} className={"hidden absolute top-1/2 left-0 text-purple-tones-50 sm:block"}>
                     <ArrowLeft/>
                 </button>
-                <button onClick={()=> handleSlide(vw)} className="hidden absolute top-1/2 right-0 text-purple sm:block">
+                <button onClick={()=> handleSlide(vw)} className="hidden absolute top-1/2 right-0 text-purple-tones-50 sm:block">
                     <ArrowRight/>
                 </button>
-                <ul className="w-max px-10 flex justify-between gap-10">
+                <ul className="w-max px-10 flex justify-between gap-7">
                     {stores.map(store => (
                         <li key={store.id}
-                            className="block text-purple text-lg font-medium w-40"
+                            className="block text-purple-tones-50 text-lg font-medium w-40"
                         >
                             <Image
                                 className="rounded-full mx-auto"

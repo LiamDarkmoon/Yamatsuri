@@ -11,7 +11,7 @@ async function HeaderNavbar() {
     const session = await auth()
 
     return (
-        <header className={styles.headernav + " bg-purple-tones-700"}>
+        <header className={styles.headernav}>
             <nav className={styles.navbar}>
                 <div className='flex items-center'>
                     <Link href="/">
@@ -22,8 +22,8 @@ async function HeaderNavbar() {
                         height={40}
                     />
                     </Link>
-                    <Link className='ml-4 text-yellow' href={`/${session?.user?.name}`}><User/></Link>
-                    <Link className='hidden sm:block ml-2 text-yellow' href={`/${session?.user?.name}`}>{session?.user?.name}</Link>
+                    <Link className='ml-4 text-purple-tones-50' href={`/${session?.user?.name}`}><User/></Link>
+                    <Link className='hidden sm:block ml-2 text-purple-tones-50' href={`/${session?.user?.name}`}>{session?.user?.name}</Link>
                 </div>
                 <ul className={styles.navlist}>
                     <Link href="/about">

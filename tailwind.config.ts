@@ -12,6 +12,7 @@ const config: Config = {
         'bg-image' : "url('/li-bg.png')",
         'bg-image-she' : "url('/she.png')",
         'bg-image-we' : "url('/slayers.png')",
+        'bg-img' : "url('/Hero-image.png')",
       }
     },
     backgroundSize:{
