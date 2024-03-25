@@ -17,7 +17,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={roboto.className + " bg-purple-tones-100"}>
+      <body className={`${roboto.className} antialiased`}>
         <HeaderNavbar/>
         <EventCalendar />
         { children }

@@ -18,19 +18,20 @@ async function HeaderNavbar() {
                     <Image
                         src="/Yamatsuri-logo.png"
                         alt="Yamatsuri Logo"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                     />
                     </Link>
-                    <Link className='ml-4 text-purple-tones-50' href={`/${session?.user?.name}`}><User/></Link>
-                    <Link className='hidden sm:block ml-2 text-purple-tones-50' href={`/${session?.user?.name}`}>{session?.user?.name}</Link>
                 </div>
                 <ul className={styles.navlist}>
                     <Link href="/about">
                         About us
                     </Link>
-                    <Link className={styles.btnsecondary} href="/tickets">
-                        Tickets 
+                     <Link className='flex items-center text-yellow' href={`/${session?.user?.name}`}>
+                        <User/>
+                        <span className='hidden sm:block ml-2'>
+                            {session?.user?.name}
+                        </span>
                     </Link>
                     {
                          !session ?

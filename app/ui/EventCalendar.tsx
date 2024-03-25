@@ -36,7 +36,7 @@ const EventCalendar = () => {
             <Calendar/>
             {
                 show && 
-                <div className="absolute w-[340px] right-0 bottom-12 bg-yellow-tones-200 rounded-lg p-4">
+                <div className="absolute w-[345px] right-0 bottom-12 bg-yellow-tones-200 rounded-lg p-4">
                     <h1 className="font-semibold text-xl mb-2">Calendario de eventos</h1>
                     <ul>
                         { events.map((event, index) => (

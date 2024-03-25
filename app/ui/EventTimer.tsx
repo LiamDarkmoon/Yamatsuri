@@ -36,7 +36,7 @@ const EventTimer = () => {
 
     return(
         <div className="timer flex flex-col items-center text-center w-10/12 sm:w-4/12">
-            <Link className="btn w-5/12 my-5 shadow-lg shadow-purple" href="/tickets">Tickets</Link>
+            <a className="btn w-5/12 my-5 shadow-lg shadow-purple" href="https://wa.me/2494207076?text=Hola%20como%20estan?%20queria%20comprar%20entradas" target="_blank">Entradas</a>
             <div className='counter-wraper justify-center p-4'>
                 <h3 className="w-10/12 text-3xl">{eventName}</h3>
                 <div className="counter w-16 h-16 text-center shadow-md shadow-purple sm:w-20 sm:h-20">

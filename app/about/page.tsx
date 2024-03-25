@@ -2,7 +2,7 @@ export default function AboutPage() {
     return (
         <main className="flex felx-col min-h-screen justify-center pt-32 text-center">
             <div className="flex flex-col items-center">
-                <h1 className="text-purple text-4xl font-bold">Otakus para otakus, una familia para la comunidad</h1>
+                <h1 className="text-4xl font-bold">Otakus para otakus, una familia para la comunidad</h1>
                 <p className="mt-4 italic text-sm w-2/3">
                     &apos;desde el primer momento en que pensamos que le hacia falta a la comunidad <b>Otaku</b>, <b>Freak</b> 
                      de la ciudad tuvimos una meta, nuestra idea siempre fue y sigue siendo la de armar una comunidad firme, 
