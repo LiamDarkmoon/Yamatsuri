@@ -1,14 +1,11 @@
-import { signOut } from '@/auth';
 import styles from '../ui/navbar.module.css'
+import { logout } from '../lib/actions';
 
 const LogoutButton = () => {
 
     return(
         <form
-          action={async () => {
-            'use server';
-            await signOut();
-          }}
+          action={logout}
         >
           <button className={styles.navbtn}>
             Logout

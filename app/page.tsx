@@ -8,7 +8,7 @@ export default function HomePage() {
       <section className="relative bg-bg-img bg-no-repeat bg-cover bg-center flex flex-col items-center h-screen min-w-full">
         <div className="flex flex-col items-center text-center h-1/2 w-full pt-40">
           <h1 className="text-5xl font-bold mb-2">Yamatsuri</h1>
-          <h3 className="text-2xl font-semibold w-10/12 mb-2">¡Unite a Nosotros para una Experiencia Anime Inolvidable!</h3>
+          <h3 className="text-2xl font-semibold w-10/12 mb-2">¡Unite a Nosotros y a la comunidad local para una Experiencia Anime Inolvidable!</h3>
           <p className="text-xl font-medium italic">&quot;Hagamos historia juntos&quot;</p>
         </div>
           <EventTimer/>
@@ -26,7 +26,7 @@ export default function HomePage() {
         <StoreList/>
       </section>
       <section className="flex flex-col justify-center items-center py-10 text-purple">
-            <h2 className="text-3xl font-bold">¿Que puedo encontrar en el evento?</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">¿Que puedo encontrar en el evento?</h2>
         <article className="flex flex-col items-center w-full min-h-screen text-center py-6">
           <h3 className="text-2xl font-semibold pb-2">Consursos</h3>
           <p className="w-10/12 text-lg font-medium pb-10 sm:w-8/12">

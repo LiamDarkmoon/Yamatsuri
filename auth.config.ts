@@ -8,7 +8,15 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-        if (isLoggedIn) return true;
+      const isOnLogin = nextUrl.pathname === '/auth/login';
+      const isOnRegister = nextUrl.pathname === '/auth/register';
+        if (isLoggedIn) {
+          if(isOnLogin || isOnRegister){
+            return Response.redirect(new URL('/', nextUrl));
+          }
+        } else if (isOnRegister){
+          return Response.redirect(new URL('/auth/login', nextUrl));
+        }
         return false; 
     },
   },

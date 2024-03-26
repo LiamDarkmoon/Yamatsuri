@@ -3,6 +3,7 @@ import { roboto } from './ui/font'
 import HeaderNavbar from './ui/Header-Navbar'
 import FooterNav from './ui/FooterNav'
 import EventCalendar from './ui/EventCalendar'
+import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
   title: "Yamatsuri",
@@ -17,12 +18,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${roboto.className} antialiased`}>
-        <HeaderNavbar/>
-        <EventCalendar />
-        { children }
-        <FooterNav/>
+      <SessionProvider>
+        <body className={`${roboto.className} antialiased`}>
+          <HeaderNavbar/>
+          <EventCalendar />
+          { children }
+          <FooterNav/>
         </body>
+      </SessionProvider>
     </html>
   );
 }

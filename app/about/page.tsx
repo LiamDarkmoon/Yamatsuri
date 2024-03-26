@@ -1,16 +1,28 @@
+import Image from 'next/image';
+
 export default function AboutPage() {
     return (
-        <main className="flex felx-col min-h-screen justify-center pt-32 text-center">
-            <div className="flex flex-col items-center">
-                <h1 className="text-4xl font-bold">Otakus para otakus, una familia para la comunidad</h1>
-                <p className="mt-4 italic text-sm w-2/3">
-                    &apos;desde el primer momento en que pensamos que le hacia falta a la comunidad <b>Otaku</b>, <b>Freak</b> 
-                     de la ciudad tuvimos una meta, nuestra idea siempre fue y sigue siendo la de armar una comunidad firme, 
-                    mas unida que nunca, dandole lugar a cada pequeña mayoria o minoria del <b>Fandom</b>, el sueño es verlos a todos de la mano,
-                    <b>Kpopers</b>, <b>Otakus</b>, <b>Geeks</b>, <b>Gamers de todas clases y colores</b>, 
-                    todos los que forman parte la comunidad, son parte de la familia.&apos;
-                </p>
-            </div>
+        <main className="flex felx-col min-h-screen justify-center p-20 text-center text-purple-tones-900">
+            <section className="flex flex-wrap-reverse items-center justify-between">
+                <article className='w-full flex flex-col justify-center sm:w-1/2'>
+                    <h1 className="text-2xl font-bold w-4/5 mb-4 sm:text-4xl">Otakus para otakus, una familia para la comunidad</h1>
+                    <p className="mt-4 italic text-sm w-4/5">
+                        &apos;Desde el primer momento en que nos preguntamos que le hacia falta a la comunidad <b>Otaku</b> 
+                        de la ciudad nos pusimos una meta, nuestra idea fue siempre y sigue siendo la de construir una comunidad firme y  
+                        mas unida que nunca. Dandole lugar a cada pequeña mayoria o minoria del <b>Fandom</b>, 
+                        el sueño es verlos a todos abrazando este mismo fin,
+                        <b>Kpopers</b>, <b>Otakus</b>, <b>Geeks</b>, <b>Gamers</b>. 
+                        Todos forman parte la comunidad y son parte de la familia.&apos;
+                    </p>
+                </article>
+                <Image
+                    src="/couple.png"
+                    alt="Pareja de otakus felices abranzandose"
+                    width={500}
+                    height={400}
+                    className='w-screen sm:w-[500px]'
+                />
+            </section>
         </main>
     )
 }  

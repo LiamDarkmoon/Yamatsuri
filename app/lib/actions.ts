@@ -1,8 +1,7 @@
 'use server'
 import { z  } from 'zod';
 import { sql  } from '@vercel/postgres';
-import { redirect } from 'next/navigation';
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import { AuthError } from 'next-auth';
 import prisma from './db';
 import bcrypt from 'bcrypt';
@@ -107,9 +106,6 @@ export async function register(prevState: State, formData: FormData) {
       message: 'Error en la base de datos: no se ha creado el usuario.',
     }
   }
-
-
-  redirect('/auth/login');
 }
 
 
@@ -121,11 +117,14 @@ export async function authenticate(prevState: string | undefined, formData: Form
       switch (error.type) {
         case 'CredentialsSignin':
           return 'Email o password incorrecto.';
-        default:
-          return 'Ups Algo salio mal.';
+          default:
+            return 'Ups Algo salio mal.';
       }
     }
     throw error;
   }
-  redirect('/');
+}
+
+export async function logout(){
+  await signOut();
 }

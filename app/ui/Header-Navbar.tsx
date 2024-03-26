@@ -1,4 +1,7 @@
+'use client'
 import Link  from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react';
 import Image  from 'next/image'
 import styles from '../ui/navbar.module.css'
 import { auth }  from '@/auth'
@@ -7,8 +10,11 @@ import { User } from '@geist-ui/icons'
 
 
 
-async function HeaderNavbar() {
-    const session = await auth()
+function HeaderNavbar() {
+    const session = useSession().data
+    const path = usePathname()
+
+    const dark = 'text-purple'
 
     return (
         <header className={styles.headernav}>
@@ -34,12 +40,19 @@ async function HeaderNavbar() {
                         </span>
                     </Link>
                     {
-                         !session ?
-                        <Link className={styles.navbtn} href="/auth/login">
-                            login
-                        </Link>
+                        path !== '/auth/login' ?
+                        <>
+                            {
+                                !session ?
+                                <Link className={styles.navbtn} href="/auth/login">
+                                    login
+                                </Link>
+                                :
+                                <LogoutButton />
+                            }
+                        </>
                         :
-                        <LogoutButton />
+                        null
                     }
                 </ul>
             </nav>
