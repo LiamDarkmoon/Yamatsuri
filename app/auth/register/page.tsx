@@ -9,7 +9,7 @@ export default function SignUpPage() {
                     <RegisterForm/>
                 </div>
             </section>
-            <section className="absolute bg-bg-img bg-right-bottom w-full h-screen pb-20 pt-28 sm:block sm:relative sm:w-1/2">
+            <section className="absolute bg-bg-img bg-right-bottom w-full h-screen pb-20 pt-28 sm:block sm:relative sm:w-1/2 sm:p-0">
             </section>
         </main>
     )
