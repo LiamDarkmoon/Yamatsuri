@@ -11,9 +11,8 @@ import { User } from '@geist-ui/icons'
 
 
 function HeaderNavbar() {
-    const session = useSession().data
+    const { data: session, status } = useSession()
     const path = usePathname()
-
 
     return (
         <header className={styles.headernav}>
@@ -30,7 +29,7 @@ function HeaderNavbar() {
                 </div>
                 <ul className={styles.navlist}>
                     {
-                        path === '/about' || path === '/[name]' ?
+                        path === '/about' || path === `/${session?.user?.name}` ?
                         <>
                             <Link className='text-purple' href="/about">
                                 About us

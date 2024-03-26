@@ -9,15 +9,14 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnLogin = nextUrl.pathname === '/auth/login';
-      const isOnRegister = nextUrl.pathname === '/auth/register';
+      
+      // If the user is not logged in, redirect to the login page
         if (isLoggedIn) {
-          if(isOnLogin || isOnRegister){
+          if(isOnLogin){
             return Response.redirect(new URL('/', nextUrl));
           }
-        } else if (isOnRegister){
-          return Response.redirect(new URL('/auth/login', nextUrl));
-        }
-        return false; 
+          return true;
+        } return false;
     },
   },
   providers: [], 

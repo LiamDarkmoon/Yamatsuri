@@ -35,7 +35,7 @@ export default function HomePage() {
             y quien sabe a lo mejor puedas ganar un premio.
           </p>
           <div className="flex flex-wrap h-3/4 w-10/12 justify-evenly items-center py-8">
-            <div className="w-full sm:w-2/5">
+            <div className="w-full pb-6 sm:w-2/5 sm:p-0">
               <h4 className="text-xl font-semibold pb-2">¡Concurso de cosplay!</h4>
               <p>
                 El plato principal para muchos, en el concurso de cosplay podras brillar con tu creatividad, 
@@ -59,7 +59,7 @@ export default function HomePage() {
                 height={250}
                 className="rounded-xl"
               />
-            <div className="w-full sm:w-2/5">
+            <div className="w-full pb-6 sm:w-2/5 sm:p-0">
               <h4 className="text-xl font-semibold pb-2">¡Concurso de Baile(Kpop) y de Dibujo!</h4>
               <p>
                 El algunas de nuestras ediciones contamos con la colavoracion de expertos en dichas disiplinas, 

@@ -9,14 +9,14 @@ export const RegisterForm = () => {
     const [state, dispatch] = useFormState(register, initialState);
 
     return(
-            <form className='flex flex-col items-center w-full' action={dispatch}>
+            <form className='flex flex-col w-full' action={dispatch}>
                 <div className='flex flex-col items-start w-full mt-2'>
                     <label htmlFor="name" className="ms-2">Nombre de usuario</label>
                     <input type="text" name="name" id="name" placeholder="janedoe" aria-describedby='name-error'className="p-2 rounded-lg w-full"/>
                     <div id="name-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.name &&
                         state.errors.name.map((error: string) => (
-                            <p className="mt-2 text-sm text-warning" key={error}>
+                            <p className="mt-2 mx-auto text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -28,7 +28,7 @@ export const RegisterForm = () => {
                     <div id="password-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.password &&
                         state.errors.password.map((error: string) => (
-                            <p className="mt-2 text-sm text-warning" key={error}>
+                            <p className="mt-2 mx-auto text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -40,7 +40,7 @@ export const RegisterForm = () => {
                     <div id="confirm-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.confirm &&
                         state.errors.confirm.map((error: string) => (
-                            <p className="mt-2 text-sm text-warning" key={error}>
+                            <p className="mt-2 mx-auto text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
                     <div id="email-error" aria-live="polite" aria-atomic="true">
                         {state.errors?.email &&
                         state.errors.email.map((error: string) => (
-                            <p className="mt-2 text-sm text-warning" key={error}>
+                            <p className="mt-2 mx-auto text-sm text-warning" key={error}>
                             {error}
                             </p>
                         ))}
@@ -60,7 +60,7 @@ export const RegisterForm = () => {
                 </div>
                 <button className='btn mt-4' type="submit" aria-disabled={pending}>Crear cuenta</button>
                 <div
-                    className="flex h-8 items-end space-x-1"
+                    className="h-8 mx-auto space-x-1"
                     aria-live="polite"
                     aria-atomic="true"
                 >
@@ -81,7 +81,7 @@ export const LoginForm = () =>{
 
 
     return(
-        <form className='flex flex-col items-center w-full' action={dispatch}>
+        <form className='flex flex-col w-full' action={dispatch}>
             <div className='flex flex-col items-start w-full mt-2'>
                 <label htmlFor="email" className="ms-2">Email</label>
                 <input type="email" name="email" id="email" placeholder="janedoe@xmail.com" className="p-2 rounded-md w-full"/>
@@ -92,7 +92,7 @@ export const LoginForm = () =>{
             </div>
             <button className='btn mt-4' type="submit" aria-disabled={pending}>Ingresar</button>
             <div
-                className="flex h-8 items-end space-x-1"
+                className="h-8 mx-auto space-x-1"
                 aria-live="polite"
                 aria-atomic="true"
             >

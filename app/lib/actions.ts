@@ -128,3 +128,7 @@ export async function authenticate(prevState: string | undefined, formData: Form
 export async function logout(){
   await signOut();
 }
+
+export async function loginGoogle(){
+  await signIn('google')
+}
