@@ -14,7 +14,6 @@ function HeaderNavbar() {
     const session = useSession().data
     const path = usePathname()
 
-    const dark = 'text-purple'
 
     return (
         <header className={styles.headernav}>
@@ -30,15 +29,32 @@ function HeaderNavbar() {
                     </Link>
                 </div>
                 <ul className={styles.navlist}>
-                    <Link href="/about">
-                        About us
-                    </Link>
-                     <Link className='flex items-center text-yellow' href={`/${session?.user?.name}`}>
-                        <User/>
-                        <span className='hidden sm:block ml-2'>
-                            {session?.user?.name}
-                        </span>
-                    </Link>
+                    {
+                        path === '/about' || path === '/[name]' ?
+                        <>
+                            <Link className='text-purple' href="/about">
+                                About us
+                            </Link>
+                            <Link className='flex items-center text-purple' href={`/${session?.user?.name}`}>
+                                <User/>
+                                <span className='hidden sm:block ml-2'>
+                                    {session?.user?.name}
+                                </span>
+                            </Link>
+                        </>
+                        :
+                        <>
+                            <Link href="/about">
+                                About us
+                            </Link>
+                            <Link className='flex items-center text-yellow' href={`/${session?.user?.name}`}>
+                                <User/>
+                                <span className='hidden sm:block ml-2'>
+                                    {session?.user?.name}
+                                </span>
+                            </Link>
+                        </>
+                    }
                     {
                         path !== '/auth/login' ?
                         <>
