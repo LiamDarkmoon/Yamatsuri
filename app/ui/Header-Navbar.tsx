@@ -29,12 +29,12 @@ function HeaderNavbar() {
                 </div>
                 <ul className={styles.navlist}>
                     {
-                        path === '/about' || path === `/${session?.user?.name}` ?
+                        path === '/about' || path === '/profile/${session?.user?.name}' ?
                         <>
                             <Link className='text-purple' href="/about">
                                 About us
                             </Link>
-                            <Link className='flex items-center text-purple' href={`/${session?.user?.name}`}>
+                            <Link className='flex items-center text-purple' href={`/profile/${session?.user?.name}`}>
                                 <User/>
                                 <span className='hidden sm:block ml-2'>
                                     {session?.user?.name}

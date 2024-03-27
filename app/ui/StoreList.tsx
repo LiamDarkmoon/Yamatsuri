@@ -1,8 +1,7 @@
 'use client'
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
-import { ArrowLeft } from '@geist-ui/icons/';
-import { ArrowRight } from '@geist-ui/icons/';
+import { ArrowLeft, ArrowRight } from '@geist-ui/icons/';
 
 const StoreList = () => {
 
