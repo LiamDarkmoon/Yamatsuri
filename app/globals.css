@@ -23,6 +23,15 @@ body {
   background:rgb(226, 224, 255);
 }
 
+.headernav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  max-width: 100%;
+}
+
 .glass{
   background: rgb(226, 224, 255, 0.6);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -82,7 +91,7 @@ body {
 
 .timer{
   position: absolute;
-  bottom: 80px;
+  bottom: 70px;
   left: 0;
   right: 0;
   margin: auto;
